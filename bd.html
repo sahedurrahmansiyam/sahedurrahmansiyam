@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Motivational Sentence with Digital Clock</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        /* Digital clock styles */
+        #clock {
+            font-size: 3em;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            color: lightblue;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInClock 2s ease-in-out;
+        }
+        @keyframes fadeInClock {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Motivational sentence styles */
+        h1 {
+            font-size: 4em;
+            text-align: center;
+            animation: fadeIn 3s ease-in-out infinite alternate;
+            border: 5px solid white;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #333;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        }
+        span {
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: colorChange 2s linear infinite;
+            display: inline-block;
+        }
+        .red { color: red; }
+        .orange { color: orange; }
+        .yellow { color: yellow; }
+        .green { color: green; }
+        .blue { color: blue; }
+        .indigo { color: indigo; }
+        .violet { color: violet; }
+        .pink { color: pink; }
+
+        @keyframes fadeIn {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+
+        @keyframes colorChange {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <h1>
+        <span class="red">Believe</span>
+        <span class="orange">in</span>
+        <span class="yellow">yourself,</span>
+        <span class="green">and</span>
+        <span class="blue">all</span>
+        <span class="indigo">that</span>
+        <span class="violet">you</span>
+        <span class="pink">are.</span>
+    </h1>
+    <script>
+        // Digital clock script
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to display clock immediately
+    </script>
+</body>
+</html>
